@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -73,6 +74,9 @@ public class MainActivity extends Activity {
         startService(new Intent(this, ZyreService.class));
 
         registerReceiver(messageReceiver, new IntentFilter(ZyreService.RECV_MESSAGE));
+
+        // Refresh loop for timestamps
+        updateHandler.postDelayed(updateInterval, 1000);
     }
 
     public void sendShout(String message_body) {
@@ -81,6 +85,7 @@ public class MainActivity extends Activity {
         intent.putExtra(ZyreService.MESSAGE_BODY, message_body);
         sendBroadcast(intent);
         Message message = new Message();
+        message.created_at = Helpers.getTimestamp();
         message.kind = "SHOUT";
         message.sender = ZyreService.NODE_NAME;
         message.body = message_body;
@@ -104,6 +109,7 @@ public class MainActivity extends Activity {
     public void receiveMessage(String message_kind, String message_sender, String message_body) {
         Log.i("ZyreTest.MainActivity.receiveMessage", message_kind + " from " + message_sender + ": " + message_body);
         Message message = new Message();
+        message.created_at = Helpers.getTimestamp();
         message.kind = message_kind;
         message.body = message_body;
         message.sender = message_sender;
@@ -118,5 +124,14 @@ public class MainActivity extends Activity {
             }
         });
     }
+
+    public Handler updateHandler = new Handler();
+    public Thread updateInterval = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            updateMessages();
+            updateHandler.postDelayed(updateInterval, 1000);
+        }
+    });
 
 }
