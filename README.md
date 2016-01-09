@@ -11,6 +11,6 @@ With gradle, `./gradlew installDebug`
 
 Install [Pyre](https://github.com/zeromq/pyre) to use the Python testing scripts.
 
-Watch Zyre messages on the network: `python listen.py`
+Watch Zyre messages on the network: `python scripts/listen.py`
 
-Send SHOUT messages interactively: `python send.py myusername`
+Send SHOUT messages interactively: `python scripts/send.py myusername`
