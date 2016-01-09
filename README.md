@@ -3,7 +3,7 @@ Proof of concept chat app with [Zyre JNI bindings](https://github.com/zeromq/zyr
 
 ![](https://raw.githubusercontent.com/spro/ZyreTestAndroid/master/screenshot.png)
 
-# Installation & Testing
+# Installation
 
 With gradle, `./gradlew installDebug`
 
