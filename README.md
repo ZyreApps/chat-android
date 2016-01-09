@@ -14,3 +14,7 @@ Install [Pyre](https://github.com/zeromq/pyre) to use the Python testing scripts
 Watch Zyre messages on the network: `python scripts/listen.py`
 
 Send SHOUT messages interactively: `python scripts/send.py myusername`
+
+# License
+
+Mozilla Public License 2, see LICENSE.
