@@ -1,4 +1,12 @@
 # ZyreTestAndroid
-Proof of concept chat app with Zyre JNI
+Proof of concept chat app with [Zyre JNI bindings](https://github.com/zeromq/zyre/releases/tag/v1.1.0)
 
 ![](https://raw.githubusercontent.com/spro/ZyreTestAndroid/master/screenshot.png)
+
+# Installation & Testing
+
+With gradle, `./gradlew installDebug`
+
+Watch Zyre messages on the network: `python listen.py`
+
+Send SHOUT messages interactively: `python send.py myusername`
