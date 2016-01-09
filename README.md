@@ -7,6 +7,10 @@ Proof of concept chat app with [Zyre JNI bindings](https://github.com/zeromq/zyr
 
 With gradle, `./gradlew installDebug`
 
+# Testing
+
+Install [Pyre](https://github.com/zeromq/pyre) to use the Python testing scripts.
+
 Watch Zyre messages on the network: `python listen.py`
 
 Send SHOUT messages interactively: `python send.py myusername`
